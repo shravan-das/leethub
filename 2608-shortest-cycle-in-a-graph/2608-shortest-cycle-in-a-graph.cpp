@@ -18,7 +18,7 @@ public:
            dist[it] = 1+dist[node];
            q.push(it);
          }
-         else if(dist[it]!=INT_MAX && par[it]!=node && par[node]!=it){
+         else if(par[node]!=it){
            int temp = dist[it]+dist[node]+1;
            ans = min(ans,temp);
          }
