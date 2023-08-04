@@ -1,38 +1,54 @@
 class Solution {
 public:
-    vector<int> closestPrimes(int left, int right) 
-    {
-        vector<bool>isPrime(right + 1, true); //Sieve of Eratosthenes
-        isPrime[1] = false;
-        vector<int>primes;
-        for (int num = 2; num * num <= right; num++)
-        {
-            if (isPrime[num])
-            {
-                for (int j = num * num; j <= right; j = j + num) isPrime[j] = false;
-            }
+  vector<int>prime;
+  
+  void sieve(int left ,int right){
+    vector<bool>isprime(right+1,false);
+    isprime[1] = true;
+   
+      
+    for(long long i = 2 ; i<=right ; i++){
+      if(isprime[i]==true){
+        continue;
+      }
+      for(long long k = i*i ; k<=right ; k = k+i){
+        isprime[k] = true;
+      }
+    }
+    
+   
+    
+    for(int i = left ; i<=right; i++){
+      if(isprime[i]==false){
+        prime.push_back(i);
+      }
+    }
+  }
+  
+  
+  
+   
+  
+    vector<int> closestPrimes(int left, int right){
+      
+      vector<int>ans;
+      ans.push_back(-1);
+      ans.push_back(-1);
+      sieve(left,right);
+      if(prime.size()==1 or prime.size()==0){
+        return ans;
+      }
+      int mind = INT_MAX;
+      for(int i = 1 ; i<prime.size(); i++){
+        if(prime[i]-prime[i-1]<mind){
+          mind = prime[i]-prime[i-1];
+          ans[0] = prime[i-1];
+          ans[1] = prime[i];
         }
-        //==============================================================================================
-        for (int i = left; i <= right; i++)  //push all the prime numbers in "primes" array
-        {
-            if (isPrime[i]) primes.push_back(i);  
-        }
-        //==================================================================================================
-        int mnDiff = INT_MAX;
-        int leftAns = -1, rightAns = -1;
-        for (int i = 0; primes.size() != 0 && i < primes.size() - 1; i++) //check for minimum difference between consecutive primes
-        {
-            int diff = primes[i + 1] - primes[i];
-            if (diff < mnDiff)
-            {
-                mnDiff = diff;
-                leftAns = primes[i];
-                rightAns = primes[i+1];
-            }
-            
-        }
-        //===================================================================================================
-        if (leftAns != -1 && rightAns != -1) return {leftAns, rightAns};
-        else return {-1, -1};
+      }
+      
+      return ans;
+      
+        
     }
 };
