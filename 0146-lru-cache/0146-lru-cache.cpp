@@ -47,7 +47,6 @@ public:
       if(mp.find(key)!=mp.end()){
         Node *temp = mp[key];
         ans = temp->value;
-        mp.erase(key);
         deletenode(temp);
         addnode(temp);
         mp[key] = head->next;
