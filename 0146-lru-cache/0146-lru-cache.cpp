@@ -59,7 +59,6 @@ public:
     void put(int key, int value) {
       if(mp.find(key)!=mp.end()){
        Node *delnode = mp[key];
-       mp.erase(key);
        deletenode(delnode); 
       }
       else if(mp.find(key)==mp.end() && mp.size()==cap){
