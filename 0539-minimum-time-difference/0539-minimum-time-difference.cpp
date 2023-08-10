@@ -31,7 +31,6 @@ public:
         int minm = pq.top().second;
         pq.pop();
         diff = min(diff,(prevhour*60+prevmin)-(minh*60+minm));
-        
         prevhour = minh;
         prevmin = minm;
        
