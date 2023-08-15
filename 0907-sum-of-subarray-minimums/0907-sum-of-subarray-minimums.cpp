@@ -6,7 +6,7 @@ public:
       vector<int>right(n,-1);
       stack<int>st;
       for(int i = 0 ; i<n ; i++){
-        while(!st.empty() && arr[st.top()]>arr[i]){
+        while(!st.empty() && arr[st.top()]>=arr[i]){
           left[i] = left[st.top()];
           st.pop();
         }
@@ -18,7 +18,7 @@ public:
       while(!st.empty())st.pop();
       
       for(int i = n-1 ; i>=0 ; i--){
-        while(!st.empty() && arr[st.top()]>=arr[i]){
+        while(!st.empty() && arr[st.top()]>arr[i]){
           right[i] = right[st.top()];
           st.pop();
         }
