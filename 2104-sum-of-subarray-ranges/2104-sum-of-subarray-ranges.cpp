@@ -84,13 +84,5 @@ void right(vector<int>&temp,vector<int>nums,stack<int>st,bool flag){
       }
       
       return sum;
-      
-      
-      
-      
-      
-      
-      
-        
     }
 };
