@@ -11,10 +11,10 @@ void left(vector<int>&temp,vector<int>nums,stack<int>st,bool flag){
    int n = nums.size();
    for(int i = 1 ; i<n ; i++){
      while(!st.empty()){
-       if(flag==false && nums[st.top()]<=nums[i]){
+       if(flag==false && nums[st.top()]<nums[i]){
          st.pop();
        }
-       else if(flag==true && nums[st.top()]>=nums[i]){
+       else if(flag==true && nums[st.top()]>nums[i]){
          st.pop();
        }
        else{
@@ -35,10 +35,10 @@ void right(vector<int>&temp,vector<int>nums,stack<int>st,bool flag){
    int n = nums.size();
    for(int i = n-2 ; i>=0 ; i--){
      while(!st.empty()){
-       if(flag==false && nums[st.top()]<nums[i]){
+       if(flag==false && nums[st.top()]<=nums[i]){
          st.pop();
        }
-       else if(flag==true && nums[st.top()]>nums[i]){
+       else if(flag==true && nums[st.top()]>=nums[i]){
          st.pop();
        }
        else{
