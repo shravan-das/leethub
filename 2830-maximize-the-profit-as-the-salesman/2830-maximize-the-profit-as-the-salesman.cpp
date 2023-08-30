@@ -25,7 +25,7 @@ public:
        return dp[i];
      }
      int nonpick =  func(i+1,offers,dp);
-     int index = binarysearch(offers,i,i+1,m-1);
+     int index = binarysearch(offers,i,i,m-1);
      int pick = offers[i][2] + func(index,offers,dp);
      dp[i] = max(nonpick,pick);
      return dp[i];
