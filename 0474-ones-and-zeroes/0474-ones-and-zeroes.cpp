@@ -6,9 +6,7 @@ public:
     if(index==s or m==0 && n==0){
       return 0;
     }
-    if(m<0 or n<0){
-      return 0;
-    }
+   
     if(dp[m][n][index]!=-1){
       return dp[m][n][index];
     }
