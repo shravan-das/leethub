@@ -3,7 +3,10 @@ public:
   
   int func(int index , vector<string>&strs,int m,int n,vector<vector<vector<int>>>&dp){
     int s = strs.size();
-    if(index==s or m+n==0){
+    if(index==s or m==0 && n==0){
+      return 0;
+    }
+    if(m<0 or n<0){
       return 0;
     }
     if(dp[m][n][index]!=-1){
