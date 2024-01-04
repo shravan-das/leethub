@@ -4,8 +4,8 @@
 
  */
 var once = function(fn) {
-    let checker = false;
-    let result;
+    var checker = false;
+    var result;
     return function(...args){
       
       if(!checker){
