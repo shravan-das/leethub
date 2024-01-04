@@ -1,21 +1,16 @@
 /**
  * @param {Function} fn
  * @return {Function}
-
  */
 var once = function(fn) {
-    var checker = false;
-    var result;
+     var temp = 1;
+     var curr;
     return function(...args){
-      
-      if(!checker){
-        result = fn(...args);
-        checker = true;
-        return result;
+      if(temp===1){
+        temp = temp+1;
+        return fn(...args);
       }
-      else{
-        return undefined;
-      }
+      return curr;
       
       
         
