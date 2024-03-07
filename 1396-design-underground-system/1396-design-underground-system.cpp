@@ -13,7 +13,7 @@ public:
     
     void checkOut(int id, string stationName, int t) {
       auto it = mp1[id];
-      mp1.erase(id);
+     
       string fromstation = it.first;
       int start = it.second;
       string fromto = fromstation + "-" + stationName;
